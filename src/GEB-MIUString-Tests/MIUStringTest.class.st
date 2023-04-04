@@ -7,16 +7,16 @@ Class {
 { #category : #tests }
 MIUStringTest >> testIMCannotBeTransformed [
 
-	| mui |
-	mui := MIUString new: 'IM'.
-	self assert: mui isTransformable equals: false
+	| miu |
+	miu := MIUString new: 'IM'.
+	self assert: miu isTransformable equals: false
 ]
 
 { #category : #tests }
 MIUStringTest >> testTransformIToIU [
 
-	| mui |
-	mui := MIUString new: 'I'.
-	self assert: mui isTransformable equals: true
+	| miu |
+	miu := MIUString new: 'I'.
+	self assert: miu isTransformable equals: true
 
 ]
