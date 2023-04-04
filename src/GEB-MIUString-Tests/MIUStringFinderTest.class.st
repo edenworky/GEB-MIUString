@@ -1,14 +1,14 @@
 Class {
-	#name : #MUIStringFinderTest,
+	#name : #MIUStringFinderTest,
 	#superclass : #TestCase,
 	#category : #'GEB-MIUString-Tests'
 }
 
 { #category : #tests }
-MUIStringFinderTest >> testFailToFindMUGivenIM [
+MIUStringFinderTest >> testFailToFindMUGivenIM [
 
 	| finder search |
-	finder := MUIStringFinder lookingFor: 'MU' startingFrom: 'IM'.
+	finder := MIUStringFinder lookingFor: 'MU' startingFrom: 'IM'.
 	search := finder search.
 	self deny: search wasSuccessful.
 	self assert: search target equals: 'MU'.
@@ -16,10 +16,10 @@ MUIStringFinderTest >> testFailToFindMUGivenIM [
 ]
 
 { #category : #tests }
-MUIStringFinderTest >> testFindIMGivenIM [
+MIUStringFinderTest >> testFindIMGivenIM [
 
 	| finder search |
-	finder := MUIStringFinder lookingFor: 'IM' startingFrom: 'IM'.
+	finder := MIUStringFinder lookingFor: 'IM' startingFrom: 'IM'.
 	search := finder search.
 	self assert: search wasSuccessful.
 	self assert: search target equals: 'IM'.

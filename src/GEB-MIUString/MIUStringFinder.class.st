@@ -1,5 +1,5 @@
 Class {
-	#name : #MUIStringFinder,
+	#name : #MIUStringFinder,
 	#superclass : #Object,
 	#instVars : [
 		'target',
@@ -9,7 +9,7 @@ Class {
 }
 
 { #category : #constructor }
-MUIStringFinder class >> lookingFor: target startingFrom: origin [
+MIUStringFinder class >> lookingFor: target startingFrom: origin [
 
 	^ self new
 		  origin: origin;
@@ -17,37 +17,37 @@ MUIStringFinder class >> lookingFor: target startingFrom: origin [
 ]
 
 { #category : #accessing }
-MUIStringFinder >> origin [
+MIUStringFinder >> origin [
 
 	^ origin
 ]
 
 { #category : #accessing }
-MUIStringFinder >> origin: anObject [
+MIUStringFinder >> origin: anObject [
 
 	origin := anObject
 ]
 
 { #category : #operations }
-MUIStringFinder >> search [
+MIUStringFinder >> search [
 
 	| searchResult |
 	searchResult := target = origin
-		                ifTrue: MUIStringFinderSuccessSearchResult
-		                ifFalse: MUIStringFinderFailureSearchResult.
+		                ifTrue: MIUStringFinderSuccessSearchResult
+		                ifFalse: MIUStringFinderFailureSearchResult.
 	^ searchResult
 		  arrivingAt: target
 		  via: OrderedCollection new
 ]
 
 { #category : #accessing }
-MUIStringFinder >> target [
+MIUStringFinder >> target [
 
 	^ target
 ]
 
 { #category : #accessing }
-MUIStringFinder >> target: anObject [
+MIUStringFinder >> target: anObject [
 
 	target := anObject
 ]

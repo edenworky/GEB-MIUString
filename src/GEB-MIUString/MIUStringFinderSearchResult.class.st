@@ -1,5 +1,5 @@
 Class {
-	#name : #MUIStringFinderSearchResult,
+	#name : #MIUStringFinderSearchResult,
 	#superclass : #Object,
 	#instVars : [
 		'steps',
@@ -10,7 +10,7 @@ Class {
 }
 
 { #category : #constructor }
-MUIStringFinderSearchResult class >> arrivingAt: target via: steps [
+MIUStringFinderSearchResult class >> arrivingAt: target via: steps [
 
 	^ self new
 		  target: target;
@@ -18,31 +18,31 @@ MUIStringFinderSearchResult class >> arrivingAt: target via: steps [
 ]
 
 { #category : #accessing }
-MUIStringFinderSearchResult >> steps [
+MIUStringFinderSearchResult >> steps [
 
 	^ steps
 ]
 
 { #category : #accessing }
-MUIStringFinderSearchResult >> steps: anObject [
+MIUStringFinderSearchResult >> steps: anObject [
 
 	steps := anObject
 ]
 
 { #category : #accessing }
-MUIStringFinderSearchResult >> target [
+MIUStringFinderSearchResult >> target [
 
 	^ target
 ]
 
 { #category : #accessing }
-MUIStringFinderSearchResult >> target: anObject [
+MIUStringFinderSearchResult >> target: anObject [
 
 	target := anObject
 ]
 
 { #category : #accessing }
-MUIStringFinderSearchResult >> wasSuccessful [
+MIUStringFinderSearchResult >> wasSuccessful [
 
 	self subclassResponsibility
 ]
