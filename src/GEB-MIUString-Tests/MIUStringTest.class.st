@@ -17,6 +17,7 @@ MIUStringTest >> testTransformIToIU [
 
 	| miu |
 	miu := MIUString new: 'I'.
-	self assert: miu isTransformable equals: true
+	self assert: miu isTransformable equals: true.
+	self assert: miu relevantTransformationRules equals: #(3)
 
 ]
