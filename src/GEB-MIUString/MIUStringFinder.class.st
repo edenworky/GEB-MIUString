@@ -38,7 +38,6 @@ MIUStringFinder >> search [
 		           targeting: target
 		           havingTakenSteps: steps.
 
-
 	[ pointer isPointingAtTarget not and: miuString isTransformable ]
 		whileTrue: [
 			miuString := miuString transformVia:

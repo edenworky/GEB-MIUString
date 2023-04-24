@@ -17,7 +17,7 @@ MIUStringTest >> testMayNotTransformViaInapplicableTransformer [
 	
 	| miu |
 	miu := MIUString new: 'I'.
-	self should: [ miu transformVia: 1 ] raise: InapplicableTransformer
+	self should: [ miu transformVia: 4 ] raise: InapplicableTransformer
 ]
 
 { #category : #tests }
@@ -26,7 +26,7 @@ MIUStringTest >> testTransformIToIU [
 	| miu |
 	miu := MIUString new: 'I'.
 	self assert: miu isTransformable equals: true.
-	self assert: miu applicableTransformers equals: #( 3 ).
-	miu := miu transformVia: 3.
+	self assert: miu applicableTransformers equals: #( 1 ).
+	miu := miu transformVia: 1.
 	self assert: miu string equals: 'IU'
 ]

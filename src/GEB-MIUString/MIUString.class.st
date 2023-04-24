@@ -15,9 +15,9 @@ MIUString class >> allTransformers [
 
 	allTransformers ifNil: [
 		allTransformers := Array
+					             with: AppendUWhenEndingInITransformer new
 			                   with: DudTransformer new
 			                   with: DudTransformer new
-			                   with: AppendUWhenEndingInITransformer new
 			                   with: DudTransformer new ].
 	^ allTransformers
 ]
