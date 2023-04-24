@@ -18,7 +18,7 @@ MIUString class >> allTransformers [
 					             with: AppendUWhenEndingInITransformer new
 			                   with: DudTransformer new
 			                   with: DudTransformer new
-			                   with: DudTransformer new ].
+			                   with: DropUUWhenItOccursAnywhereTransformer new ].
 	^ allTransformers
 ]
 

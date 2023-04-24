@@ -25,8 +25,19 @@ MIUStringTest >> testTransformIToIU [
 
 	| miu |
 	miu := MIUString new: 'I'.
-	self assert: miu isTransformable equals: true.
+	self assert: miu isTransformable.
 	self assert: miu applicableTransformers equals: #( 1 ).
 	miu := miu transformVia: 1.
 	self assert: miu string equals: 'IU'
+]
+
+{ #category : #tests }
+MIUStringTest >> testTransformUUToEmptyString [
+
+	| miu |
+	miu := MIUString new: 'UU'.
+	self assert: miu isTransformable.
+	self assert: miu applicableTransformers equals: #( 4 ).
+	miu := miu transformVia: 4.
+	self assert: miu string equals: ''
 ]

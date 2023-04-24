@@ -11,3 +11,8 @@ Class {
 DudTransformer >> isApplicableTo: miu [
 	^ false
 ]
+
+{ #category : #accessing }
+DudTransformer >> transform: miu [
+	^ miu clone
+]

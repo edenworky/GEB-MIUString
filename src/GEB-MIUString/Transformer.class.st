@@ -14,5 +14,5 @@ Transformer >> isApplicableTo: miu [
 
 { #category : #accessing }
 Transformer >> transform: miu [
-	^ miu clone
+	self subclassResponsibility
 ]

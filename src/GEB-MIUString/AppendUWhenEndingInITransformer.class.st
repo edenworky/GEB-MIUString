@@ -9,7 +9,7 @@ Class {
 
 { #category : #testing }
 AppendUWhenEndingInITransformer >> isApplicableTo: miu [
-	^ miu endsWith: #I
+	^ miu endsWith: 'I'
 ]
 
 { #category : #accessing }

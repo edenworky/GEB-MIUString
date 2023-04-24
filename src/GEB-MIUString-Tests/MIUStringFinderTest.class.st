@@ -12,7 +12,7 @@ MIUStringFinderTest >> testFailToFindMUGivenIM [
 	search := finder search.
 	self deny: search wasSuccessful.
 	self assert: search target equals: 'MU'.
-	self assert: search steps size equals: 0
+	self assert: search steps asArray equals: #()
 ]
 
 { #category : #tests }
@@ -33,6 +33,15 @@ MIUStringFinderTest >> testFindIUGivenI [
 	finder := MIUStringFinder lookingFor: 'IU' startingFrom: 'I'.
 	search := finder search.
 	self assert: search wasSuccessful.
-	self assert: search target equals: 'IU'.
-	self assert: search steps size equals: 1
+	self assert: search steps asArray equals: #('IU')
+]
+
+{ #category : #tests }
+MIUStringFinderTest >> testIUThruIFromIUU [
+
+	| finder search |
+	finder := MIUStringFinder lookingFor: 'IU' startingFrom: 'IUU'.
+	search := finder search.
+	self assert: search wasSuccessful.
+	self assert: search steps asArray equals: #( 'I' 'IU' )
 ]
