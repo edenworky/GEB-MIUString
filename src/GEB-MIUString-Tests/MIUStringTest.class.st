@@ -13,6 +13,14 @@ MIUStringTest >> testIMCannotBeTransformed [
 ]
 
 { #category : #tests }
+MIUStringTest >> testMayNotTransformViaInapplicableTransformer [
+	
+	| miu |
+	miu := MIUString new: 'I'.
+	self should: [ miu transformVia: 1 ] raise: InapplicableTransformer
+]
+
+{ #category : #tests }
 MIUStringTest >> testTransformIToIU [
 
 	| miu |

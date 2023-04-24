@@ -31,13 +31,28 @@ MIUStringFinder >> origin: anObject [
 { #category : #operations }
 MIUStringFinder >> search [
 
-	| searchResult |
-	searchResult := target = origin
-		                ifTrue: MIUStringFinderSuccessSearchResult
-		                ifFalse: MIUStringFinderFailureSearchResult.
-	^ searchResult
-		  arrivingAt: target
-		  via: OrderedCollection new
+	| searchResult steps pointer miuString |
+	miuString := MIUString new: origin.
+	steps := OrderedCollection with: origin.
+	pointer := MIUStringSearchPointer
+		           targeting: target
+		           havingTakenSteps: steps.
+
+
+	[ pointer isPointingAtTarget not and: miuString isTransformable ]
+		whileTrue: [
+			miuString := miuString transformVia:
+				             miuString applicableTransformers first.
+			steps add: miuString string.
+			pointer := MIUStringSearchPointer
+				           targeting: target
+				           havingTakenSteps: steps ].
+
+	searchResult := pointer isPointingAtTarget
+		                ifTrue: [ MIUStringFinderSuccessSearchResult ]
+		                ifFalse: [ MIUStringFinderFailureSearchResult ].
+	steps removeFirst.
+	^ searchResult arrivingAt: target via: steps
 ]
 
 { #category : #accessing }

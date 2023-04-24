@@ -25,3 +25,14 @@ MIUStringFinderTest >> testFindIMGivenIM [
 	self assert: search target equals: 'IM'.
 	self assert: search steps size equals: 0
 ]
+
+{ #category : #tests }
+MIUStringFinderTest >> testFindIUGivenI [
+
+	| finder search |
+	finder := MIUStringFinder lookingFor: 'IU' startingFrom: 'I'.
+	search := finder search.
+	self assert: search wasSuccessful.
+	self assert: search target equals: 'IU'.
+	self assert: search steps size equals: 1
+]

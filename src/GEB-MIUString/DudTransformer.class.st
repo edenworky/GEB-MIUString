@@ -2,12 +2,12 @@
 I transform MIU strings never and change nothing about them.
 "
 Class {
-	#name : #InapplicableTransformer,
+	#name : #DudTransformer,
 	#superclass : #Transformer,
 	#category : #'GEB-MIUString'
 }
 
 { #category : #testing }
-InapplicableTransformer >> isApplicableTo: miu [
+DudTransformer >> isApplicableTo: miu [
 	^ false
 ]

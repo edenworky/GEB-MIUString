@@ -15,10 +15,10 @@ MIUString class >> allTransformers [
 
 	allTransformers ifNil: [
 		allTransformers := Array
-			                   with: InapplicableTransformer new
-			                   with: InapplicableTransformer new
+			                   with: DudTransformer new
+			                   with: DudTransformer new
 			                   with: AppendUWhenEndingInITransformer new
-			                   with: InapplicableTransformer new ].
+			                   with: DudTransformer new ].
 	^ allTransformers
 ]
 
@@ -69,7 +69,10 @@ MIUString >> string: anObject [
 { #category : #transformation }
 MIUString >> transformVia: aTransformerName [
 
-	| transformer |
-	transformer := self class transformerNamed: aTransformerName.	
-	^ self class new: (transformer transform: string)
+	| transformer transformed |
+	transformer := self class transformerNamed: aTransformerName.
+	(transformer isApplicableTo: string) ifFalse: [
+		InapplicableTransformer signal: aTransformerName ].
+	transformed := transformer transform: string.
+	^ self class new: transformed
 ]
